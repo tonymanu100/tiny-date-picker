@@ -8,6 +8,7 @@ export default function PermanentMode(root, emit, opts) {
   var dp = BaseMode(root, emit, opts);
 
   dp.close = noop;
+  dp.destroy = noop;
   dp.updateInput = noop;
   dp.shouldFocusOnRender = opts.shouldFocusOnRender;
 
