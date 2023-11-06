@@ -254,7 +254,7 @@
         return true;
       },
 
-      appendTo: document.body,
+      // appendTo: document.body,
     };
   }
 
@@ -379,7 +379,7 @@
             className += (datesEq(date, selectedDate) ? ' dp-selected' : '');
             className += (isDisabled ? ' dp-day-disabled' : '');
             className += (isToday ? ' dp-day-today' : '');
-            className += ' ' + opts.dateClass(date, dp);
+            className += (opts.dateClass? ' ' + opts.dateClass(date, dp) : '');
 
             return (
               '<button tabindex="-1" type="button" class="' + className + '" data-date="' + date.getTime() + '">' +
@@ -1026,6 +1026,7 @@
     var dp = BaseMode(root, emit, opts);
 
     dp.close = noop;
+    dp.destroy = noop;
     dp.updateInput = noop;
     dp.shouldFocusOnRender = opts.shouldFocusOnRender;
 
@@ -1330,7 +1331,8 @@
       var selectedClass = datesEq(dt, state.start) || datesEq(dt, state.end);
 
       return (rangeClass ? 'dr-in-range ' : '') +
-             (selectedClass ? 'dr-selected ' : '');
+             (selectedClass ? 'dr-selected ' : '') +
+             (opts.dateClass? opts.dateClass(dt) + ' ' : '');
     }
 
     return me;
