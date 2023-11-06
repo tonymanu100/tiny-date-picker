@@ -73,7 +73,7 @@ function defaults() {
       return true;
     },
 
-    appendTo: document.body,
+    // appendTo: document.body,
   };
 }
 
