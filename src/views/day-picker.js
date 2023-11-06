@@ -65,7 +65,7 @@ function render(dp) {
           className += (datesEq(date, selectedDate) ? ' dp-selected' : '');
           className += (isDisabled ? ' dp-day-disabled' : '');
           className += (isToday ? ' dp-day-today' : '');
-          className += ' ' + opts.dateClass(date, dp);
+          className += (opts.dateClass? ' ' + opts.dateClass(date, dp) : '');
 
           return (
             '<button tabindex="-1" type="button" class="' + className + '" data-date="' + date.getTime() + '">' +

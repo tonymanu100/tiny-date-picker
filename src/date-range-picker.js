@@ -134,7 +134,8 @@ export function DateRangePicker(container, opts) {
     var selectedClass = datesEq(dt, state.start) || datesEq(dt, state.end);
 
     return (rangeClass ? 'dr-in-range ' : '') +
-           (selectedClass ? 'dr-selected ' : '');
+           (selectedClass ? 'dr-selected ' : '') +
+           (opts.dateClass? opts.dateClass(dt) + ' ' : '');
   }
 
   return me;
